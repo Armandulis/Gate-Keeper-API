@@ -1,0 +1,43 @@
+services:
+  server:
+    container_name: server
+    image: php:8.2-fpm-alpine
+    command: php -S 0.0.0.0:8000 -t public
+    build: .docker/server_docker
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8001:8000"
+    depends_on:
+      - msql
+
+  msql:
+    container_name: msql
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "8011:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: gate-keeper
+      MYSQL_DATABASE: gate-keeper
+      MYSQL_USER: player
+      MYSQL_PASSWORD: player
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+
+  phpmadmin:
+    container_name: phpmadmin
+    depends_on:
+      - msql
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: msql
+      MYSQL_USER: player
+      MYSQL_PASSWORD: player
+    restart: always
+
+volumes:
+  db_data: {}
