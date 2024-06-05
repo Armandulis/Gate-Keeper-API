@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\DTO\CharacterStatsDTO;
 use App\Entity\Character;
 use App\Entity\BaseStats;
 use App\Entity\StatsLevels;

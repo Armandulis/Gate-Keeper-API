@@ -22,6 +22,9 @@ class Zone implements EntityInterface
   #[ORM\Column]
   private ?float $travelTime = null;
 
+  #[ORM\Column]
+  private int $level;
+
   public function getId() : ?int
   {
     return $this->id;
