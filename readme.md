@@ -135,3 +135,25 @@ Path: `/api/stats/level/down`
 response: `{'stats': [ ... ]}`
 
 
+### Get Available Travel Zones
+
+Method: `GET`
+
+path: `/api/zone/travel-options`
+
+response: `{'zones': [ ... ]}`
+
+
+### Start Travel
+
+Method: `POST`
+
+Arguments:
+
+|   name   | type |
+|:--------:|:----:|
+| travelId | int  |
+
+path: `/api/zone/start-travel`
+
+response: `{'travel': { ... }}`

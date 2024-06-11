@@ -103,6 +103,13 @@ class Travel implements EntityInterface
    */
   public function dataToArray() : array
   {
-    return [];
+    return [
+      'id' => $this->getId(),
+      'characterId' => $this->getCharacterEntity()?->getId(),
+      'zoneId' => $this->getZone()?->getId(),
+      'status' => $this->getStatus(),
+      'startTime' => $this->getStartTime(),
+      'endTime' => $this->getEndTime(),
+    ];
   }
 }

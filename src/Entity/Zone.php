@@ -42,6 +42,18 @@ class Zone implements EntityInterface
     return $this;
   }
 
+  public function getLevel() : ?int
+  {
+    return $this->name;
+  }
+
+  public function setLevel( int $name ) : static
+  {
+    $this->name = $name;
+
+    return $this;
+  }
+
   public function getDescription() : ?string
   {
     return $this->description;
@@ -72,6 +84,12 @@ class Zone implements EntityInterface
    */
   public function dataToArray() : array
   {
-    return [];
+    return [
+      'id' => $this->getId(),
+      'name' => $this->getName(),
+      'description' => $this->getDescription(),
+      'travelTime' => $this->getTravelTime(),
+      'level' => $this->getLevel(),
+    ];
   }
 }
