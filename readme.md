@@ -16,7 +16,7 @@ For working with the project:
 - Symfony v7 (or newer)
 
 ## Getting Started
-1. Clone the project `git clone [project-git-url] [project-name]`
+1. Clone the project `git clone https://github.com/Armandulis/Gate-Keeper-API GateKeeperAPI`
 
 ## Environment Variables
 ### Authentication
